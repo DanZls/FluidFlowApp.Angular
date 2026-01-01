@@ -1,0 +1,115 @@
+<div>
+  <a href="#" class="link-underline link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" 
+  data-bs-toggle="modal" data-bs-target="#tutorialModal">
+    About & Tutorial
+  </a>
+</div>
+
+<div class="modal fade" id="tutorialModal" data-bs-backdrop="static" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header py-2">
+        <span class="modal-title h5">About & Tutorial</span>
+        <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex justify-content-center">
+          <div class="d-flex flex-column w-75">
+            <p class="h5">
+              About
+            </p>
+            <p class="p-justified">
+              FlowApp implements a mathematical algorithm of hydrodynamics for calculating fluid dynamics around solid 
+              boundaries.
+            </p>
+            <p class="p-justified">
+              The model represents view from above on a rectangular area of a hypothetical unbounded in any direction pool, 
+              filled with fluid (e.g. ocean), which is considered as ideal fluid. Static boundaries are borders of immovable 
+              solid objects (e.g. islands). Dynamic boundaries are borders of a shape, formed by liquid, lighter than the main 
+              one and floating on surface of the pool (e.g. an oil spill on water); this shape can move freely with the 
+              underlying masses of the main liquid, moved by current.
+            </p>
+            <p class="p-justified">
+              Theoretical description, justification and usage examples for the used simulation method can be found in 
+              following publications:
+            </p>
+            <ol class="p-justified">
+              <li>
+                S. Dovgiy, I. Lifanov, D. Cherniy. Method of singular integral equations and computational 
+                technologies. - Kyiv, Ukraine: Publishing House "Euston", 2016, 380 p.
+              </li>
+              <li>
+                S. Dovgiy, P. Vasin, D. Zloschastiev, D. Cherniy. Method of singular integral equations for problems 
+                of fluid dynamics in a region with a free boundary.// XXI International Scientific and Practical Conference 
+                "Information-communication technologies and sustainable development", ITGIP of the National Academy of 
+                Sciences, Kyiv, Ukraine, November 14-16, 2022, p. 37.
+              </li>
+              <li>
+                P. Vasin, D. Zloschastiev, D. Cherniy. Algorithm for fulfilling the impenetrability condition for the 
+                method of discrete features.// VIII International Scientific and Practical Conference "Computer Hydromechanics", 
+                National Academy of Sciences of the National Academy of Sciences, Kyiv, Ukraine, September 27-28, 2022, p. 11.
+              </li>
+              <li>
+                P. Vasin, D. Zloschastiev, D. Cherniy. Algorithm of computing technologies for problems with a free 
+                boundary of separation of environments.// VIII International Scientific and Practical Conference "Computer 
+                Hydromechanics", IGM NASU, Kyiv, Ukraine, September 27-28, 2022, p. 12.
+              </li>
+              <li>
+                P. Vasin, D. Zloschastiev, D. Cherniy. Computational technology for problems with free boundaries.// 
+                VI International Scientific Conference "Modern problems of mechanics" (To the 70th anniversary of the birth of 
+                Vyacheslav Volodymyrovych Meleshko), Kyiv, Ukraine, August 30–31, 2021., p.45.
+              </li>
+            </ol>
+            <p class="h5 mt-5">
+              Tutorial
+            </p>
+            <p class="p-justified">
+              Click on button "Add model".
+            </p>
+            <p class="p-justified">
+              In the opened window, click on the board to add points to the static boundary. Then click "Next" and add points 
+              to the dynamic boundary. Currently, FlowApp allows to add only one static and one dynamic borders to each model.
+            </p>
+            <p class="p-justified">
+              The points should be added in clockwise order around the boundary. Both boundaries should contain at least
+              3 points each and be closed. You should not worry about closing a boundary though, since it is closed
+              automatically when 3 points are added.
+            </p>
+            <img src="assets/images/tutorial/Image (1).png" class="img-thumbnail mb-2" style="max-width: 550px;">
+            <p class="p-justified">
+              Avoid building such models, where a dynamic boundary flows around a static one on both sides. This case
+              is currently one of the weak spots of the calculating algorithm where it becomes unstable.
+            </p>
+            <div class="mb-4">
+              <img src="assets/images/tutorial/Image (2).png" class="img-thumbnail float-start" style="max-width: 550px;">
+              <img src="assets/images/tutorial/Image (3).png" class="img-thumbnail float-end" style="max-width: 550px;">
+            </div>
+            <div class="mb-2">
+              <img src="assets/images/tutorial/Image (4).png" class="img-thumbnail float-start" style="max-width: 550px;">
+              <img src="assets/images/tutorial/Image (5).png" class="img-thumbnail float-end" style="max-width: 550px;">
+            </div>
+            <p class="p-justified">
+              Before you submit the model for calculation, fill the parameters. You can also leave the default ones, which
+              are balanced for optimal accuracy and performance.
+            </p>
+            <p class="p-justified">
+              The parameters are: Flow Velocity - the velocity of current in vector form (default is from left to right); 
+              Simulation Time and Simulation Time Step - time parameters, the product of their values gives the number 
+              of animation frames generated (default gives 500 frames); Min Points Spacing and Max Points Spacing - minimal 
+              and maximum distances between points of boundaries (less is more accurate, but cuts into performance).
+            </p>
+            <p class="p-justified">
+              Click on "Calculate and Save" button. The calculation will take some time (timeout 30s). After this, the model
+              list will reload with the calculated model included. If the calculation times out, the new model will included
+              less frames than it should.
+            </p>
+            <p class="p-justified">
+              If any problems or failures occure during the calculation or other server-side operations, they will be 
+              reflected in "Logs" along with success messages.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

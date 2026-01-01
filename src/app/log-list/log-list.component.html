@@ -1,0 +1,27 @@
+<div class="d-flex">
+  <button class="btn btn-sm btn-outline-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#logList"
+    (click)="logService.MarkAllAsRead()">
+    <span>Logs </span>
+    <span class="badge text-bg-info" [hidden]="logService.unreadLogsNumber < 1">
+      {{ logService.unreadLogsNumber }}
+    </span>
+  </button>
+</div>
+
+<div class="offcanvas offcanvas-end" id="logList" tabindex="-1" style="width: 40vw">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Logs</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div *ngFor="let log of logService.logs.reverse()">
+      <div class="card border-info mb-3">
+        <div class="card-body">
+          <p class="card-text">
+            {{ log }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

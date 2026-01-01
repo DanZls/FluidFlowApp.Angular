@@ -1,0 +1,67 @@
+<div class="modal fade" id="modifyingBoardModal" data-bs-backdrop="static" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header py-2">
+        <h5 class="modal-title">
+          {{this.step}}
+        </h5>
+        <div>
+          <button type="button" class="btn btn-outline-warning me-1" 
+          [hidden]="IsDeletePointsHidden()" (click)="DeleteLastPoint()">
+            Delete last added point
+          </button>
+          <button type="button" class="btn btn-outline-danger me-3" 
+          [hidden]="IsDeletePointsHidden()" (click)="DeleteAllPoints()">
+            Delete all points
+          </button>
+          <button class="btn btn-primary me-3" type="button" 
+          [hidden]="IsNextStepHidden()" [disabled]="IsNextStepDisabled()" (click)="NextStep()">
+            Next step
+          </button>
+          <button class="btn btn-success me-3" type="button" data-bs-dismiss="modal" 
+          [disabled]="IsCalculateAndSaveDisabled()" (click)="CalculateAndSave()">
+            Calculate and Save
+          </button>
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal" 
+          (click)="ResetBoard()">
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-3">
+            <div class="mb-3">
+              <label class="form-label">Flow Velocity X</label>
+              <input class="form-control" type="number" [(ngModel)]="this.flow.defaultVelocity[0]">
+            </div>
+            <div class="mb-5">
+              <label class="form-label">Flow Velocity Y</label>
+              <input class="form-control" type="number" [(ngModel)]="this.flow.defaultVelocity[1]">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Simulation Time</label>
+              <input class="form-control" type="number"  [(ngModel)]="this.flow.simulationTime">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Simulation Time Step</label>
+              <input class="form-control" type="number"  [(ngModel)]="this.flow.simulationTimeStep">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Min Points Spacing</label>
+              <input class="form-control" type="number"  [(ngModel)]="this.flow.pointSpacingRange[0]">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Max Points Spacing</label>
+              <input class="form-control" type="number"  [(ngModel)]="this.flow.pointSpacingRange[1]">
+            </div>
+          </div>
+          <div class="col-9">
+            <div class="d-flex justify-content-center">
+              <div class="board" id="modifyingBoard" (mousedown)="AddPoint()"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
