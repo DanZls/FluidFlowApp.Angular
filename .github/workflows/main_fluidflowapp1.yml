@@ -24,6 +24,11 @@ jobs:
       run: |
         npm install -g @angular/cli
         npm install
+
+    - name: Add environment.ts file
+      run: |
+        mkdir -p src/environment
+        echo "export const backendUrl: string = '${{ secrets.BACKEND_URL }}';" > src/environment/environment.ts
     
     - name: Build
       run: npm run build
@@ -33,4 +38,5 @@ jobs:
       with:
         name: drop
         path: dist/client/browser
+
 
