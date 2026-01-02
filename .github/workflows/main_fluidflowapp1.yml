@@ -1,4 +1,4 @@
-name: Build Angular App
+name: FluidFlowApp / Build and Deploy to Azure App Service
 
 on:
   push:
@@ -17,14 +17,14 @@ jobs:
     - name: Install Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20.x'
+        node-version: '22.x'
         cache: 'npm'
     
     - name: Install Angular and Dependencies
       run: |
         npm install -g @angular/cli
         npm install
-
+    
     - name: Add environment.ts file
       run: |
         mkdir -p src/environment
@@ -38,11 +38,22 @@ jobs:
       with:
         name: drop
         path: dist/client/browser
+        retention-days: 1
 
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Download Build Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: drop
+        path: dist/client/browser
+    
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v3
       with:
         app-name: 'fluidflowapp'
         publish-profile: ${{ secrets.AZURE_APP_SERVICE_PUBLISH_PROFILE }}
         package: dist/client/browser
-
