@@ -25,6 +25,7 @@ jobs:
 
       - name: Create environment.ts
         run: |
+          mkdir -p src/environments
           echo '${{ secrets.ENVIRONMENT_TS }}' > src/environments/environment.ts
 
       - name: npm install, build, and test
@@ -58,3 +59,4 @@ jobs:
           package: .
 
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_790E653240F642198967106461518EDE }}
+
