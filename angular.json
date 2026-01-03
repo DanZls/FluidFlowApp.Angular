@@ -27,7 +27,12 @@
             "inlineStyleLanguage": "css",
             "assets": [
               "src/icon.png",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/bootstrap-icons/font/fonts",
+                "output": "/fonts"
+              }
             ],
             "styles": [
               "src/styles.css",
